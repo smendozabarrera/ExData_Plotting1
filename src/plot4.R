@@ -7,9 +7,9 @@
 ## Created: Sat Aug  9 19:24:18 2014 (-0500)
 ## Version: 
 ## Package-Requires: ()
-## Last-Updated: Sat Aug  9 22:56:17 2014 (-0500)
+## Last-Updated: Sat Aug  9 23:19:09 2014 (-0500)
 ##           By: Sergio-Feliciano Mendoza-Barrera
-##     Update #: 20
+##     Update #: 21
 ## URL: 
 ## Doc URL: 
 ## Keywords: 
@@ -105,7 +105,7 @@ EPConsumption$Sub_metering_1 <- sapply(EPConsumption$Sub_metering_1,
 EPConsumption$Sub_metering_2 <- sapply(EPConsumption$Sub_metering_2,
                                        as.numeric)
 
-EPConsumption$Sub_metering_3 <- sapply(EPConsumption$Sub_metering_2,
+EPConsumption$Sub_metering_3 <- sapply(EPConsumption$Sub_metering_3,
                                        as.numeric)
 
 ######################################################################

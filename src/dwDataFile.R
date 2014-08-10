@@ -6,9 +6,9 @@
 ## Created: Sun Jul 20 22:04:18 2014 (-0500)
 ## Version: 
 ## Package-Requires: ()
-## Last-Updated: Sun Jul 20 22:42:52 2014 (-0500)
+## Last-Updated: Sat Aug  9 20:55:35 2014 (-0500)
 ##           By: Sergio-Feliciano Mendoza-Barrera
-##     Update #: 14
+##     Update #: 15
 ## URL: 
 ## Doc URL: 
 ## Keywords: 
@@ -67,7 +67,7 @@ dwDataFile <- function(destfile, fileUrl) {
                 print(list.files(directory))
                 dateDownloaded <- date()
         }
-        print("Done !")
+        print("Download done !")
 }
 ######################################################################
 ### dwDataFile.R ends here

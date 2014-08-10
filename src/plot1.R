@@ -1,15 +1,15 @@
-### ExploratoryDataPlot.R --- 
+### plot1.R --- 
 ## 
-## Filename: ExploratoryDataPlot.R
+## Filename: plot1.R
 ## Description: 
 ## Author: Sergio-Feliciano Mendoza-Barrera
 ## Maintainer: 
-## Created: Sat Aug  9 09:14:48 2014 (-0500)
+## Created: Sat Aug  9 17:59:04 2014 (-0500)
 ## Version: 
 ## Package-Requires: ()
-## Last-Updated: Sat Aug  9 21:57:18 2014 (-0500)
+## Last-Updated: Sat Aug  9 21:00:49 2014 (-0500)
 ##           By: Sergio-Feliciano Mendoza-Barrera
-##     Update #: 142
+##     Update #: 64
 ## URL: 
 ## Doc URL: 
 ## Keywords: 
@@ -19,8 +19,7 @@
 ## 
 ### Commentary: 
 ## 
-## Exploratory Data Analysis
-## Project 1
+## Plo1 1 reproduction
 ## 
 ######################################################################
 ## 
@@ -51,12 +50,12 @@ library(data.table)
 library(lubridate)
 
 ######################################################################
-## Download the required files
+## Download the required files (Run once)
 ## source("dwDataFile.R")                  # Download the dataset
 
 ## fileName <- "household_power_consumption.zip"
 ## source <-
-##         "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+##         "https://archive.ics.uci.edu/ml/machine-learning-databases/00235/household_power_consumption.zip"
 
 ## dwDataFile(fileName, source)                  # Download the dataset
 
@@ -80,17 +79,14 @@ EPConsumption <- fread(dataFN, sep = ";", header = FALSE, na.strings =
 
 setnames(EPConsumption, ColNames)
 
-## head(EPConsumption, n = 10)
-## tail(EPConsumption, n = 10)
-
 ######################################################################
 ## Converting the data to easy handle
 
 ## Pasting date and time
 EPConsumption$myDate <- paste(EPConsumption$Date, EPConsumption$Time, sep=" ")
 EPConsumption$myDate <- dmy_hms(EPConsumption$myDate)
-## head(EPConsumption)
 
+## Change the class of data
 EPConsumption$Global_active_power <-
         sapply(EPConsumption$Global_active_power, as.numeric)
 
@@ -112,39 +108,41 @@ EPConsumption$Sub_metering_2 <- sapply(EPConsumption$Sub_metering_2,
 EPConsumption$Sub_metering_3 <- sapply(EPConsumption$Sub_metering_2,
                                        as.numeric)
 
-## sapply(EPConsumption, mode)             # Testing NA values existence
-## sapply(EPConsumption, class)
-## anyNA(EPConsumption)
+######################################################################
+## Plot code:
 
-## dim(EPConsumption)
+## myBreaks <-
+##         seq(min(EPConsumption$Global_active_power) * .99999,
+##             max(EPConsumption$Global_active_power) * 1.00001,
+##             length.out = 12)
 
-## Test!
-## I seem to have the right subset, but the data seems to be mismatched.
-## I have 2880 rows. I created this by using the following code.
+## hist(EPConsumption$Global_active_power, col = "red", breaks = myBreaks,
+##      main="Global Active Power",
+##      xlab="Global Active Power (kilowatts)", freq = TRUE, ylim = c(0, 1200))
 
+## See histogram on the screen
+hist(EPConsumption$Global_active_power, col = "red",
+     main="Global Active Power",
+     xlab="Global Active Power (kilowatts)")
 
-## filename="data/household_power_consumption.txt"
-## hpcdata<-read.csv.sql(filename,sep=";",sql='select * from file where Date="2/1/2007" OR Date="2/2/2007"')
-## hpcdata$Date<-strptime(paste(hpcdata$Date,hpcdata$Time),format)
-## The summary looks like this.
+pngfile <- "./figure/plot1.png"
 
-## > summary(hpcdata)
-##       Date                         Time           Global_active_power Global_reactive_power
-##  Min.   :2007-02-01 00:00:00   Length:2880        Min.   :0.220       Min.   :0.0000       
-##  1st Qu.:2007-02-01 11:59:45   Class :character   1st Qu.:0.380       1st Qu.:0.0000       
-##  Median :2007-02-01 23:59:30   Mode  :character   Median :0.532       Median :0.1100       
-##  Mean   :2007-02-01 23:59:30                      Mean   :1.020       Mean   :0.1145       
-##  3rd Qu.:2007-02-02 11:59:15                      3rd Qu.:1.466       3rd Qu.:0.1620       
-##  Max.   :2007-02-02 23:59:00                      Max.   :5.448       Max.   :0.8620       
-##     Voltage      Global_intensity Sub_metering_1 Sub_metering_2   Sub_metering_3  
-##  Min.   :233.9   Min.   : 1.000   Min.   :0      Min.   :0.0000   Min.   : 0.000  
-##  1st Qu.:239.0   1st Qu.: 1.600   1st Qu.:0      1st Qu.:0.0000   1st Qu.: 0.000  
-##  Median :241.4   Median : 2.200   Median :0      Median :0.0000   Median : 0.000  
-##  Mean   :241.1   Mean   : 4.292   Mean   :0      Mean   :0.2444   Mean   : 6.215  
-##  3rd Qu.:243.0   3rd Qu.: 6.000   3rd Qu.:0      3rd Qu.:0.0000   3rd Qu.:17.000  
-##  Max.   :250.0   Max.   :23.000   Max.   :0      Max.   :2.0000   Max.   :19.000  
+if(!file.exists(pngfile)) {
 
+## Open png device to write the plot
+png(filename = pngfile, width = 480, height = 480, units =
+      "px", pointsize = 12, bg = "transparent")
 
+## Execute plot code
+hist(EPConsumption$Global_active_power, col = "red",
+     main="Global Active Power",
+     xlab="Global Active Power (kilowatts)")
+
+## Close device!
+dev.off()                               # IMPORTANT!
+}
+
+print("***  plot1.R DONE!  ***")
 
 ######################################################################
-### ExploratoryDataPlot.R ends here
+### plot1.R ends here

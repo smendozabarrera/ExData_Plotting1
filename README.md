@@ -5,6 +5,8 @@ Sat Aug  9 23:09:50 CDT 2014
 Below will see the tree structure, the src directory have the R
 sources and a figure directory with generated PNG milestones.
 
+<pre><code>
+
 .
 ├── README.md
 ├── figure.ORIG
@@ -27,6 +29,8 @@ sources and a figure directory with generated PNG milestones.
     ├── plot2.R
     ├── plot3.R
     └── plot4.R
+
+</code></pre>
 
 ## Introduction
 

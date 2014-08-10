@@ -1,3 +1,33 @@
+## Submission file tree
+
+Sat Aug  9 23:09:50 CDT 2014
+
+Below will see the tree structure, the src directory have the R
+sources and a figure directory with generated PNG milestones.
+
+.
+├── README.md
+├── figure.ORIG
+│   ├── unnamed-chunk-2.png
+│   ├── unnamed-chunk-3.png
+│   ├── unnamed-chunk-4.png
+│   └── unnamed-chunk-5.png
+└── src                                       Source directory
+    ├── ExploratoryDataPlot.R
+    ├── data
+    │   ├── household_power_consumption.txt
+    │   └── household_power_consumption.zip
+    ├── dwDataFile.R
+    ├── figure                                Figures generated
+    │   ├── plot1.png
+    │   ├── plot2.png
+    │   ├── plot3.png
+    │   └── plot4.png
+    ├── plot1.R
+    ├── plot2.R
+    ├── plot3.R
+    └── plot4.R
+
 ## Introduction
 
 This assignment uses data from
@@ -89,26 +119,25 @@ GitHub so that the GitHub version of your repository is up to
 date. There should be four PNG files and four R code files.
 
 
-The four plots that you will need to construct are shown below. 
+The four plots that you will need to construct are shown below.
 
 
 ### Plot 1
 
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png)
 
 
 ### Plot 2
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png)
 
 
 ### Plot 3
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png)
 
 
 ### Plot 4
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
-
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png)
